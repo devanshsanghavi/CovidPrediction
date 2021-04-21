@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
+import GraphComponent from './components/GraphComponent'
 
 function App() {
+
+  const options = [
+    'India', 'Maharashtra', 'Delhi Belly'
+  ];
+  const defaultOption = options[0];
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload. Okay
+          Covid-19 Predictions for India and its States
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Dropdown 
+        options={options} //onChange={this._onSelect} 
+        value={defaultOption} 
+        //arrowClassName='myArrowClassName'
+        //arrowClosed={<span className="arrow-closed" />}
+        //arrowOpen={<span className="arrow-open" />}
+      />
+      <GraphComponent />
     </div>
   );
 }
